@@ -7,7 +7,7 @@
           
             <!-- <button @click="fetchUsers" class="btn btn-dark">responseLog</button> -->
                 <!-- v-bind:key="user.id" Обязвткльно, чтобы отслеживание было по id -->
-                <div v-for="user in users" v-bind:key="user.id">
+                <div class="text" v-for="user in users" v-bind:key="user.id">
                     <div><strong>HI </strong>{{user.name}} {{user.lastname}}</div>
                     <!-- <div> <strong>yourmail: </strong>{{user.email}} {{user.email}} {{user.role}} {{user.phone}}</div> -->
                 </div>
@@ -20,12 +20,10 @@
 
 
 <style scoped>
-.userBlok{
-    margin: 10px;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    padding: 20px;
-    /* display: inline-block; */
+.text{
+  text-align: center;
+  padding-top: 100px;
+  font-size: 20px;
 }
 </style>
 

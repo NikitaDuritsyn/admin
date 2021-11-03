@@ -14,10 +14,22 @@ const routes = [
     component: ()=>import('../views/Products.vue')
   },
   {
+    path: '/createProducts',
+    name: 'createProducts',
+    meta: {layout:'main'},
+    component: ()=>import('../views/CreateProducts.vue')
+  },
+  {
     path: '/orders',
     name: 'Оrders',
     meta: {layout:'main'},
     component: ()=>import('../views/Оrders.vue')
+  },
+  {
+    path: '/reviews',
+    name: 'Reviews',
+    meta: {layout:'main'},
+    component: ()=>import('../views/Reviews.vue')
   },
   {
     path: '/login',

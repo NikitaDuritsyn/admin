@@ -1,18 +1,35 @@
 <template>
+
+<!--
+    Заголовок сообщ: order.title 
+    Отчество: order.patronymic 
+    Фамилия: order.userlastname 
+    Номер: order.phone 
+    email: order.email
+-->
+                    
     <div id="orders" class="container">
-        <div class="row">
-            <div class="col-md-0"></div>
-            <div class="col-md-12">
-                <!-- <button @click="fetchOrders" class="btn btn-dark">responseLog</button> -->
-                <!-- title, description, username, patronymic, userlastname, email, phone - Всё это поля заказа -->
-                <div class="ordersBlok" v-for="order in orders" v-bind:key="order.id">
-                    <div><strong>Заголовок сообщ: </strong>{{order.title}}</div>
-                    <div><strong>Описание: </strong>{{order.description}}</div>
-                    <div><strong>Имя заказчика: </strong>{{order.username}}</div>
-                    <div><strong>Отчество: </strong>{{order.patronymic}}</div>
-                    <div><strong>Фамилия: </strong>{{order.userlastname}}</div>
-                    <div><strong>Номер: </strong>{{order.phone}}</div>
-                    <div><strong>email: </strong>{{order.email}}</div>
+        <div class="row main-text-height ">
+            <div class="col-md-12 main-text align-self-center">
+                Заказы
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3 align-self-center">
+                <button class="btn btn-dark" style="width: 100%" @click="deleteAllOrder">УДАЛИТЬ ВСЕ ЗАКАЗЫ</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10 ">
+                <div class="orders-blok" v-for="order in orders" v-bind:key="order.id">
+                    <div class="order-text"><strong>Имя: </strong>{{order.username}} <strong>Номер: </strong>{{order.phone}}</div>
+                    <div class="order-text"><strong>email: </strong>{{order.email}}</div>
+                    <div class="order-text"><strong>id: </strong>{{order.id}}</div>
+                    <hr>
+                    <strong class="order-text">Описание/пожелание: </strong>
+                    <div class="order-text-description">{{order.description}}</div>
+                    <button class="btn btn-dark" @click="deleteOrder(order.id)">УДПЛИТЬ</button>
+                    
                 </div>
             </div>
         </div>
@@ -20,21 +37,39 @@
 </template>
 
 <style scoped>
-/* .tabel{
-    padding-top: 50px;
-} */
-.ordersBlok{
+.orders-blok{
+    background-color: white;
     margin: 10px;
     color: rgb(0, 0, 0);
     padding: 20px;
-    border: 1px;
-    border: 2px dotted;
-    border: medium dashed rgb(0, 0, 0);
-    /* display: inline-block; */
+    height: 365px;
+}
+.order-text{
+    margin: 10px;
+}
+.order-text-description{
+    min-width: 200px;
+    height: 100px;
+    margin: 10px;
+}
+.main-text-height{
+    height: 93px;
+}
+.main-text{
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
+button{
+    border-radius: 0;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
 }
 </style>
 
 <script>
+import ordersService from '../Services/OredersService';
 import OredersService from '../Services/OredersService'
 
 export default{
@@ -52,7 +87,23 @@ export default{
         async fetchOrders() {
             try{
                 this.orders = await OredersService.getAllOrders()
-                console.log(this.orders);
+            }catch(e){
+                alert(e.massege)
+            }
+        },
+        async deleteAllOrder(){
+            try{
+                this.orders = await ordersService.deleteALLOrder()
+                
+            }catch(e){
+                alert(e.massege)
+            }
+        },
+        async deleteOrder(orderID){
+            try{
+                console.log(orderID)
+                this.orders = await ordersService.deleteOneOrder(orderID)
+                this.fetchOrders();
             }catch(e){
                 alert(e.massege)
             }

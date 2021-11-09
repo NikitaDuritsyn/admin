@@ -4,48 +4,6 @@
             Тут будут все товары
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-                <!-- 
-                ЭТО КОД ДЛЯ ГЛАВНОЙ СТРАНЦЫ НА КЛИЕНТЕ ПРОСТО ДЛЯ ПРИМЕРА ТУТ ОСТАВИЛ МОЖЕТ БЫТЬ ПРИГОДИТСЯ ПОТОМ
-                <div class="row">
-                <div class="col-md-6">
-                    <div class="block-one" ></div>
-                </div>
-                <div class="col-md-6">
-                    <div class="container">
-                        <div class="row" style="height: 600px">
-                            <div class="col-md-12">
-                                <div class="row" style="height: 50%">
-                                    <div class="col-md-7">
-                                        <div class="block-2" ></div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="block-3" ></div>
-                                    </div>
-                                </div>
-                                <div class="row" style="height: 50%">
-                                    <div class="col-md-7">
-                                        <div class="block-4" ></div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="block-5" ></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>     
-            </div> -->
 </template>
 
 <style scoped>

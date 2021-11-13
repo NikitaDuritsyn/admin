@@ -47,7 +47,7 @@
               <a class="nav-link" href="Reviews">Отзывы</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login">Выход</a>
+              <a class="nav-link" href="/" @click="logout">Выход</a>
             </li>
           </ul>
         </div>
@@ -76,5 +76,10 @@
 <script>
 export default {
   name: "Navbar",
+  methods:{
+    logout(){
+      localStorage.removeItem('token')
+    }
+  }
 };
 </script>

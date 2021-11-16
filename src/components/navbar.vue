@@ -15,7 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <div class="me-auto data-time-text">
-            <a class="navbar-brand" href="/">АДМИНИСТРАЦИЯ Kovcheq_100</a>
+            <a class="navbar-brand" href="/main">АДМИНИСТРАЦИЯ Kovcheq_100</a>
             17.09.2021 19:17:45
           </div>
           <ul class="navbar-nav">

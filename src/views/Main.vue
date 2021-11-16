@@ -43,9 +43,8 @@ export default {
     methods:{
         async fetchUsers() {
             try{
-                // const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-                // const response = await axios.get('http://localhost:3000/api/user')
-                // const response = await axios.get('http://localhost:3000/api/user')
+                // const token = localStorage.getItem('token')
+                // Сделать передачу токна для всех запросов, ответы в продвинутой авторизации - сделать за четверг
                 this.users = await UserService.getAllUsers()
                 console.log(this.users);
             }catch(e){

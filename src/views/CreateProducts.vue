@@ -10,11 +10,11 @@
                   <input type="text" placeholder="Название товара" />
                 </div>
               </div>
-              <div class="row g-0 my_row align-items-center">
+              <!-- <div class="row g-0 my_row align-items-center">
                 <div class="col-md-7">
                   <input type="text" placeholder="Артикул" />
                 </div>
-              </div>
+              </div> -->
               <div class="row g-0 my_row align-items-center">
                 <div class="col-md-7">
                   <input type="text" placeholder="Цена" />
@@ -102,7 +102,6 @@ button {
   height: 40px;
 }
 .create_product_block {
-  height: 680px;
   background-color: white;
   padding: 30px;
   font-size: 15px;

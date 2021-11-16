@@ -34,9 +34,11 @@
                 <div class="row g-0 justify-content-center">
                   <div class="col-md-10">
                     <div>
+                      <strong> Название товара: </strong>
                       <input type="text" v-bind:value="product.title" />
                     </div>
-                    <div>
+                    <div class="description">
+                      <div><strong>Описание товара</strong></div>
                       <textarea
                         name="description"
                         id="textarea"
@@ -45,17 +47,20 @@
                         v-bind:value="product.descriptionmaterial"
                       />
                     </div>
-                    <div>
-                      <input type="text" v-bind:value="product.titletwo" />
-                    </div>
-                    <div>
-                      <textarea
-                        name="description"
-                        id="textarea"
-                        cols="30"
-                        rows="5"
-                        v-bind:value="product.descriptionadvantages"
-                      />
+                    <div class="description">
+                      <div>
+                        <strong>Заголовок доп описания: </strong>
+                        <input type="text" v-bind:value="product.titletwo" />
+                      </div>
+                      <div>
+                        <textarea
+                          name="description"
+                          id="textarea"
+                          cols="30"
+                          rows="5"
+                          v-bind:value="product.descriptionadvantages"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -63,10 +68,12 @@
                   <div class="col-md-10">
                     <div class="row g-0 align-items-center">
                       <div class="col-md-2">
-                        <div>Цена:</div>
+                        <strong> Цена:</strong>
                       </div>
                       <div class="col-md-4">
-                        <div><input type="text" v-bind:value="product.price" /></div>
+                        <div>
+                          <input type="text" v-bind:value="product.price" />
+                        </div>
                       </div>
                     </div>
                     <!-- <div class="row g-0 align-items-center">
@@ -79,26 +86,29 @@
                     </div> -->
                     <div class="row g-0 align-items-center">
                       <div class="col-md-2">
-                        <div>Тип товара:</div>
+                        <strong>Тип товара:</strong>
                       </div>
                       <div class="col-md-4">
-                        <div><input type="text" v-bind:value="product.type" /></div>
+                        <div>
+                          <input type="text" v-bind:value="product.type" />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <hr>
                 <div class="row g-0 justify-content-center">
                   <div class="col-md-10">
                     <div class="product_menu">
                       <div class="row g-0">
                         <div class="col-md-6">
-                          <div class="row g-0 my_row">
+                          <!-- <div class="row g-0 my_row">
                             <div class="col-md-9">
                               <button class="btn btn-dark">
                                 РЕДАКТИРОВАТЬ ТОВАР
                               </button>
                             </div>
-                          </div>
+                          </div> -->
                           <div class="row g-0 my_row align-items-center">
                             <div class="col-md-9">
                               <button class="btn btn-dark">
@@ -106,7 +116,7 @@
                               </button>
                             </div>
                           </div>
-                          <div class="row g-0 my_row align-items-end">
+                          <div class="row g-0 my_row align-items-center">
                             <div class="col-md-9">
                               <button class="btn btn-dark">
                                 УДАЛИТЬ ТОВАР
@@ -116,7 +126,10 @@
                         </div>
                         <div class="col-md-6">
                           <div class="image_block">
-                            <img v-bind:src="product.urlimage"  alt="Загрузите картинку" />
+                            <img
+                              v-bind:src="product.urlimage"
+                              alt="Загрузите картинку"
+                            />
                           </div>
                         </div>
                       </div>
@@ -133,7 +146,10 @@
 </template>
 
 <style scoped>
-img{
+.description {
+  padding: 20px 0 20px 0;
+}
+img {
   width: 100%;
   height: 100%;
 }
@@ -142,7 +158,7 @@ img{
   width: 100%;
 }
 .my_row {
-  height: 33.33%;
+  height: 50%;
 }
 .image_block {
   width: 100%;

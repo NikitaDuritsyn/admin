@@ -15,7 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <div class="me-auto data-time-text">
-            <a class="navbar-brand" href="/">Admin Kovcheq_100</a>
+            <a class="navbar-brand" href="/">АДМИНИСТРАЦИЯ Kovcheq_100</a>
             17.09.2021 19:17:45
           </div>
           <ul class="navbar-nav">
@@ -61,11 +61,11 @@
   background-color: rgb(0, 0, 0) !important;
 }
 .navbar-brand {
-  font-size: 30px;
+  font-size: 20px;
 }
 .data-time-text {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 .nav-link {
   color: white !important;

@@ -101,7 +101,7 @@ export default{
         },
         async deleteOrder(orderID){
             try{
-                console.log(orderID)
+                // console.log(orderID)
                 this.orders = await ordersService.deleteOneOrder(orderID)
                 this.fetchOrders();
             }catch(e){

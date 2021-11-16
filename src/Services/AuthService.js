@@ -7,15 +7,15 @@ class authService {
         return new Promise(async (resolve, reject)=>{
             try{
                 const response = await axios.post(url, {email, password});
+                const token = response.data.token
+                localStorage.setItem('token',token)
                 resolve(response.data);
-                console.log(response.data)
-                localStorage.setItem('token', response.data.token)
-                const token = localStorage.getItem(token)
-                console.log(token)
                 
+                // console.log(response.data.token)
+                // console.log(token);
+                // const token = localStorage.getItem(token)
                 // const getToken = 'Bearer ' + localStorage.getItem('token')
                 // console.log(getToken);
-
                 // axios.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem('token')
             }catch(e){
                 reject(e) 
@@ -26,7 +26,7 @@ class authService {
 
         return new Promise(async (resolve, reject)=>{
             try{
-                
+
             }catch(e){
                 reject(e) 
             }

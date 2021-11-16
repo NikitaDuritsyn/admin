@@ -47,6 +47,9 @@
               <a class="nav-link" href="Reviews">Отзывы</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/registration">Регистрация</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/" @click="logout">Выход</a>
             </li>
           </ul>

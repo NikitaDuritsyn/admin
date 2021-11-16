@@ -2,6 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+    path: '/registration',
+    name: 'Registration',
+    meta: {layout:'main', auth: true},
+    component: ()=>import('../views/Registration.vue')
+  },
+  {
     path: '/main',
     name: 'Main',
     meta: {layout:'main', auth: true},

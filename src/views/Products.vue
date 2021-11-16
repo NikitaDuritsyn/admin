@@ -8,15 +8,29 @@
               <div class="products_menu">
                 <ul class="nav flex-column">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"
-                      >Потолки</a
+                    <a
+                      @click="getByTypeProduct(this.typeOne)"
+                      class="nav-link"
+                      aria-current="page"
+                      href="#"
+                      >Потолки
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      @click="getByTypeProduct(this.typeTwo)"
+                      class="nav-link"
+                      href="#"
+                      >Светильники</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Светильники</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Потолочниые карнизы</a>
+                    <a
+                      @click="getByTypeProduct(this.typeThree)"
+                      class="nav-link"
+                      href="#"
+                      >Потолочниые карнизы</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -35,7 +49,11 @@
                   <div class="col-md-10">
                     <div>
                       <strong> Название товара: </strong>
-                      <input type="text" v-bind:value="product.title" />
+                      <input
+                        type="text"
+                        v-bind:value="product.title"
+                        @input="product.title = $event.target.value"
+                      />
                     </div>
                     <div class="description">
                       <div><strong>Описание товара</strong></div>
@@ -45,12 +63,19 @@
                         cols="30"
                         rows="5"
                         v-bind:value="product.descriptionmaterial"
+                        @input="
+                          product.descriptionmaterial = $event.target.value
+                        "
                       />
                     </div>
                     <div class="description">
                       <div>
                         <strong>Заголовок доп описания: </strong>
-                        <input type="text" v-bind:value="product.titletwo" />
+                        <input
+                          type="text"
+                          v-bind:value="product.titletwo"
+                          @input="product.titletwo = $event.target.value"
+                        />
                       </div>
                       <div>
                         <textarea
@@ -59,6 +84,9 @@
                           cols="30"
                           rows="5"
                           v-bind:value="product.descriptionadvantages"
+                          @input="
+                            product.descriptionadvantages = $event.target.value
+                          "
                         />
                       </div>
                     </div>
@@ -72,53 +100,63 @@
                       </div>
                       <div class="col-md-4">
                         <div>
-                          <input type="text" v-bind:value="product.price" />
+                          <input
+                            type="text"
+                            v-bind:value="product.price"
+                            @input="product.price = $event.target.value"
+                          />
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="row g-0 align-items-center">
-                      <div class="col-md-2">
-                        <div>Артикул:</div>
-                      </div>
-                      <div class="col-md-4">
-                        <div><input type="text" v-bind:value="product.articul" /></div>
-                      </div>
-                    </div> -->
                     <div class="row g-0 align-items-center">
                       <div class="col-md-2">
                         <strong>Тип товара:</strong>
                       </div>
                       <div class="col-md-4">
                         <div>
-                          <input type="text" v-bind:value="product.type" />
+                          <input
+                            type="text"
+                            v-bind:value="product.type"
+                            @input="product.type = $event.target.value"
+                          />
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="row g-0 justify-content-center">
                   <div class="col-md-10">
                     <div class="product_menu">
                       <div class="row g-0">
                         <div class="col-md-6">
-                          <!-- <div class="row g-0 my_row">
-                            <div class="col-md-9">
-                              <button class="btn btn-dark">
-                                РЕДАКТИРОВАТЬ ТОВАР
-                              </button>
-                            </div>
-                          </div> -->
                           <div class="row g-0 my_row align-items-center">
                             <div class="col-md-9">
-                              <button class="btn btn-dark">
+                              <button
+                                class="btn btn-dark"
+                                @click="
+                                  updateProduct(
+                                    product.id,
+                                    product.type,
+                                    product.title,
+                                    product.titletwo,
+                                    product.descriptionmaterial,
+                                    product.descriptionadvantages,
+                                    product.price,
+                                    product.urlimage
+                                  )
+                                "
+                              >
                                 СОХРАНИТЬ ИЗМЕНЕНИЯ
                               </button>
                             </div>
                           </div>
                           <div class="row g-0 my_row align-items-center">
                             <div class="col-md-9">
-                              <button class="btn btn-dark">
+                              <button
+                                class="btn btn-dark"
+                                @click="deleteThisProduct(product.id)"
+                              >
                                 УДАЛИТЬ ТОВАР
                               </button>
                             </div>
@@ -205,13 +243,55 @@ export default {
   data() {
     return {
       products: [],
+      typeOne: "Потолок",
+      typeTwo: "Светильник",
+      typeThree: "Карниз",
     };
   },
   methods: {
     async fetchProducts() {
       try {
         this.products = await prductsService.getAllProducts();
-        console.log(this.products);
+      } catch (e) {
+        alert(e.massage);
+      }
+    },
+    async updateProduct(
+      id,
+      type,
+      title,
+      titletwo,
+      descriptionmaterial,
+      descriptionadvantages,
+      price,
+      urlimage
+    ) {
+      try {
+        this.products = await prductsService.updateOneProduct(
+          id,
+          type,
+          title,
+          titletwo,
+          descriptionmaterial,
+          descriptionadvantages,
+          price,
+          urlimage
+        );
+      } catch (e) {
+        alert(e.massage);
+      }
+    },
+    async deleteThisProduct(id) {
+      try {
+        this.products = await prductsService.deleteOneProducts(id);
+      } catch (e) {
+        alert(e.massage);
+      }
+    },
+    async getByTypeProduct(typeproduct) {
+      try {
+        console.log(typeproduct);
+        this.products = await prductsService.getByTypeAllProduct(typeproduct);
       } catch (e) {
         alert(e.massage);
       }

@@ -46,15 +46,7 @@ class prductsService{
     static createPrduct(type, title, titletwo, descriptionmaterial, descriptionadvantages, price, urlimage){
         return new Promise(async (resolve, reject)=>{
             try{
-                console.log(
-                    type,
-                    title,
-                    titletwo,
-                    descriptionmaterial,
-                    descriptionadvantages,
-                    price,
-                    urlimage
-                  );
+                console.log( type, title, titletwo, descriptionmaterial, descriptionadvantages, price, urlimage);
                 const response = await axios.post(url,{type, title, titletwo, descriptionmaterial, descriptionadvantages, price, urlimage})
                 resolve(response.data)
             }catch(e){

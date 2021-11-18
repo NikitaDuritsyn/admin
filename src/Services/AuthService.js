@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const url = 'http://localhost:3000/api/login'
+const urlRegister = 'http://localhost:3000/api/registration'
 class authService {
     static login(email, password){
 
@@ -29,6 +30,16 @@ class authService {
 
             }catch(e){
                 reject(e) 
+            }
+        })
+    }
+    static registrationNewUser(name, lastname, email, phone, role, password){
+        return new Promise(async (resolve, reject)=>{
+            try{
+                const response = await axios.post(urlRegister,{name, lastname, email, password, phone, role})
+                resolve(response.data)
+            }catch(e){
+                reject(e)
             }
         })
     }

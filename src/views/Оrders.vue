@@ -28,7 +28,7 @@
                     <hr>
                     <strong class="order-text">Описание/пожелание: </strong>
                     <div class="order-text-description">{{order.description}}</div>
-                    <button class="btn btn-dark" @click="deleteOrder(order.id)">УДПЛИТЬ</button>
+                    <button class="btn btn-dark" @click="deleteOrder(order.id)">УДАЛИТЬ</button>
                     
                 </div>
             </div>

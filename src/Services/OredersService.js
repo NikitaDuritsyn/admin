@@ -21,7 +21,7 @@ class ordersService {
                 const response = await axios.delete(url + `/${orderID}`);
                 resolve(response.data);
             }catch(e){
-                reject(e) 
+                reject(e)
             }
         })
     }
